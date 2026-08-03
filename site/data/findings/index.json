@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "snapshots": [
+    {
+      "current_until": "2026-08-03T02:14:03Z",
+      "finding_count": 0,
+      "observed_at": "2026-08-03T00:14:03Z",
+      "path": "snapshots/2026/08/2026-08-03T00-14-03Z.json",
+      "source_commit": "local",
+      "status": "no_findings"
+    },
+    {
+      "current_until": "2026-08-03T01:53:18Z",
+      "finding_count": 0,
+      "observed_at": "2026-08-02T23:53:18Z",
+      "path": "snapshots/2026/08/2026-08-02T23-53-18Z.json",
+      "source_commit": "local",
+      "status": "no_findings"
+    },
+    {
+      "current_until": "2026-08-03T01:37:17Z",
+      "finding_count": 0,
+      "observed_at": "2026-08-02T23:37:17Z",
+      "path": "snapshots/2026/08/2026-08-02T23-37-17Z.json",
+      "source_commit": "local",
+      "status": "no_findings"
+    }
+  ]
+}
