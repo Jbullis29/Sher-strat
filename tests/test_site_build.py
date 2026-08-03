@@ -58,6 +58,14 @@ class SiteBuildTests(unittest.TestCase):
                     elif isinstance(item, list):
                         stack.extend(item)
 
+    def test_public_footers_do_not_claim_copyright(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            dist = self.build(tmp)
+            for relative in ("index.html", "findings/index.html", "performance/index.html", "methodology/index.html", "disclosures/index.html"):
+                page = (dist / relative).read_text()
+                self.assertNotIn("©", page, relative)
+                self.assertIn("sherweb.ai · Independent research project", page, relative)
+
     def test_performance_data_is_complete_and_consistent_with_verified_totals(self):
         with tempfile.TemporaryDirectory() as tmp:
             dist = self.build(tmp)
