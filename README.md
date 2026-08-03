@@ -1,8 +1,8 @@
 # sherweb-strategy
 
-Public-source, credential-free Coinbase market research for the planned `Jbullis29/sherweb-strategy` repository and `sherweb.ai` website.
+Public-source, credential-free Coinbase market research for [`Jbullis29/Sher-strat`](https://github.com/Jbullis29/Sher-strat) and the planned `sherweb.ai` website.
 
-> **Current state:** local pre-publication review. No GitHub remote, GitHub Pages deployment, or custom-domain change has been created.
+> **Current state:** source published on GitHub. GitHub Pages and the `sherweb.ai` custom domain are not yet enabled.
 
 ## Public/private boundary
 
@@ -54,7 +54,7 @@ Run a local preview:
 python3 -m http.server 8790 --bind 127.0.0.1 --directory dist
 ```
 
-## Planned GitHub automation
+## GitHub automation
 
 `.github/workflows/scan-and-publish.yml` is configured to:
 
@@ -80,4 +80,4 @@ This project is not affiliated with, sponsored by, endorsed by, or operated by S
 
 ## License
 
-No open-source license has been selected. Public visibility does not itself grant broad reuse rights. Licensing should be decided before publication.
+No open-source license has been selected. Public visibility does not itself grant broad reuse rights; licensing remains a separate decision.
