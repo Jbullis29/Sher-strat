@@ -29,7 +29,7 @@ SUMMARY_FIELDS = {
     "profit_factor", "realized_return_pct", "win_rate_pct", "wins", "yield_benchmark_pnl",
 }
 SUMMARY_COUNT_FIELDS = {"completed_trades", "losses", "wins"}
-TRADE_FIELDS = {"asset", "beat_yield", "cost", "cumulative_pnl", "entry_date", "exit_date", "held_days", "number", "pnl", "return_pct", "yield_benchmark"}
+TRADE_FIELDS = {"asset", "beat_yield", "buy_price", "cost", "cumulative_pnl", "entry_date", "exit_date", "held_days", "number", "pnl", "return_pct", "sell_price", "yield_benchmark"}
 ASSET_PATTERN = re.compile(r"^[A-Z0-9]{2,12}$")
 DATE_PATTERN = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 PRIVATE_FIELDS = {"account_id", "order_id", "entry_order_id", "exit_order_id", "quantity", "balance", "filled_size", "credentials", "api_key", "secret", "jwt"}
@@ -134,12 +134,14 @@ def _validate_performance(data: Any) -> None:
         if not isinstance(trade["beat_yield"], bool):
             raise ValueError("invalid benchmark verdict")
         cost = _finite_number(trade["cost"], "cost")
+        buy_price = _finite_number(trade["buy_price"], "buy_price")
+        sell_price = _finite_number(trade["sell_price"], "sell_price")
         held_days = _finite_number(trade["held_days"], "held_days")
         pnl = _finite_number(trade["pnl"], "pnl")
         return_pct = _finite_number(trade["return_pct"], "return_pct")
         yield_benchmark = _finite_number(trade["yield_benchmark"], "yield_benchmark")
         cumulative_value = _finite_number(trade["cumulative_pnl"], "cumulative_pnl")
-        if cost <= 0 or held_days < 0 or yield_benchmark < 0:
+        if cost <= 0 or buy_price <= 0 or sell_price <= 0 or held_days < 0 or yield_benchmark < 0:
             raise ValueError("invalid nonnegative trade values")
         calendar_days = (exit_date - entry_date).days
         if abs(held_days - calendar_days) >= 1:
@@ -149,6 +151,8 @@ def _validate_performance(data: Any) -> None:
             raise ValueError("trade yield benchmark mismatch")
         if abs(return_pct - pnl / cost * 100) > 0.02:
             raise ValueError("trade return does not match P/L and cost")
+        if abs((sell_price / buy_price - 1) * 100 - return_pct) > 0.02:
+            raise ValueError("effective prices do not match trade return")
         cumulative += pnl
         if abs(cumulative_value - round(cumulative, 2)) > 0.005:
             raise ValueError("trade cumulative P/L mismatch")

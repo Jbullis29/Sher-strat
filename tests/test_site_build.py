@@ -67,6 +67,53 @@ class SiteBuildTests(unittest.TestCase):
             self.assertAlmostEqual(data["summary"]["net_realized_pnl"], 27.78)
             self.assertAlmostEqual(sum(trade["pnl"] for trade in data["trades"]), 27.78)
             self.assertEqual(sum(1 for trade in data["trades"] if trade["pnl"] < 0), 1)
+            for trade in data["trades"]:
+                self.assertGreater(trade["buy_price"], 0)
+                self.assertGreater(trade["sell_price"], 0)
+                effective_return = (trade["sell_price"] / trade["buy_price"] - 1) * 100
+                self.assertAlmostEqual(effective_return, trade["return_pct"], delta=0.02)
+
+    def test_performance_table_displays_effective_prices(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            dist = self.build(tmp)
+            performance = (dist / "performance/index.html").read_text()
+            script = (dist / "assets/site.js").read_text()
+            self.assertIn("Buy price", performance)
+            self.assertIn("Sell price", performance)
+            self.assertIn("priceMoney(trade.buy_price)", script)
+            self.assertIn("priceMoney(trade.sell_price)", script)
+            self.assertIn("timeZone:'UTC'", script)
+            data = json.loads((dist / "data/performance/realized-results.json").read_text())
+            self.assertIn("effective unit cost including exposed buy fees", data["methodology"])
+            self.assertIn("effective unit proceeds net of exposed sell fees", data["methodology"])
+
+    def test_performance_price_fields_fail_closed(self):
+        invalid_values = [True, 0, -1, float("nan"), float("inf"), float("-inf")]
+        for field in ("buy_price", "sell_price"):
+            for invalid in invalid_values:
+                with self.subTest(field=field, invalid=invalid), tempfile.TemporaryDirectory() as tmp:
+                    source = self.mutable_site(tmp)
+                    path = source / "data/performance/realized-results.json"
+                    data = json.loads(path.read_text())
+                    data["trades"][0][field] = invalid
+                    path.write_text(json.dumps(data))
+                    with self.assertRaises(ValueError):
+                        build_site(source, Path(tmp) / "dist")
+        for mutation in ("missing", "unknown", "inconsistent"):
+            with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as tmp:
+                source = self.mutable_site(tmp)
+                path = source / "data/performance/realized-results.json"
+                data = json.loads(path.read_text())
+                trade = data["trades"][0]
+                if mutation == "missing":
+                    del trade["buy_price"]
+                elif mutation == "unknown":
+                    trade["execution_quantity"] = 123
+                else:
+                    trade["sell_price"] = trade["buy_price"] * (1 + (trade["return_pct"] + 0.03) / 100)
+                path.write_text(json.dumps(data))
+                with self.assertRaises(ValueError):
+                    build_site(source, Path(tmp) / "dist")
 
     def mutable_site(self, directory):
         source = Path(directory) / "site"

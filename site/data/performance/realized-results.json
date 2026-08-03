@@ -1,7 +1,7 @@
 {
   "benchmark_apy_pct": 4.0,
-  "generated_at": "2026-08-02T22:03:44.280569+00:00",
-  "methodology": "Realized, fee-inclusive Coinbase strategy trades only. Results exclude unrealized/open positions and non-strategy holdings. The 4% APY comparison uses each trade's actual deployed capital and holding period.",
+  "generated_at": "2026-08-03T01:20:33Z",
+  "methodology": "Realized, fee-inclusive Coinbase strategy trades only. Buy prices are rounded effective unit cost including exposed buy fees; sell prices are rounded effective unit proceeds net of exposed sell fees. Quantities and transaction identifiers remain private. Results exclude unrealized/open positions and non-strategy holdings. The 4% APY comparison uses each trade's actual deployed capital and holding period.",
   "summary": {
     "capital_deployed": 1651.28,
     "completed_trades": 7,
@@ -23,6 +23,7 @@
     {
       "asset": "LINK",
       "beat_yield": false,
+      "buy_price": 9.517815,
       "cost": 247.37,
       "cumulative_pnl": -44.39,
       "entry_date": "2026-05-25",
@@ -31,11 +32,13 @@
       "number": 1,
       "pnl": -44.39,
       "return_pct": -17.95,
+      "sell_price": 7.809726,
       "yield_benchmark": 0.67
     },
     {
       "asset": "SOL",
       "beat_yield": true,
+      "buy_price": 69.1441,
       "cost": 201.97,
       "cumulative_pnl": -30.84,
       "entry_date": "2026-06-19",
@@ -44,11 +47,13 @@
       "number": 2,
       "pnl": 13.55,
       "return_pct": 6.71,
+      "sell_price": 73.7843,
       "yield_benchmark": 0.04
     },
     {
       "asset": "MORPHO",
       "beat_yield": true,
+      "buy_price": 1.882835,
       "cost": 214.25,
       "cumulative_pnl": -18.82,
       "entry_date": "2026-06-21",
@@ -57,11 +62,13 @@
       "number": 3,
       "pnl": 12.02,
       "return_pct": 5.61,
+      "sell_price": 1.988435,
       "yield_benchmark": 0.23
     },
     {
       "asset": "DOGE",
       "beat_yield": true,
+      "buy_price": 0.07178741,
       "cost": 227.44,
       "cumulative_pnl": -4.31,
       "entry_date": "2026-07-01",
@@ -70,11 +77,13 @@
       "number": 4,
       "pnl": 14.51,
       "return_pct": 6.38,
+      "sell_price": 0.07636813,
       "yield_benchmark": 0.05
     },
     {
       "asset": "MORPHO",
       "beat_yield": true,
+      "buy_price": 1.992019,
       "cost": 241.71,
       "cumulative_pnl": 12.6,
       "entry_date": "2026-07-03",
@@ -83,11 +92,13 @@
       "number": 5,
       "pnl": 16.91,
       "return_pct": 7.0,
+      "sell_price": 2.131367,
       "yield_benchmark": 0.12
     },
     {
       "asset": "XRP",
       "beat_yield": true,
+      "buy_price": 1.087672,
       "cost": 257.81,
       "cumulative_pnl": 15.16,
       "entry_date": "2026-07-08",
@@ -96,11 +107,13 @@
       "number": 6,
       "pnl": 2.56,
       "return_pct": 0.99,
+      "sell_price": 1.098482,
       "yield_benchmark": 0.51
     },
     {
       "asset": "ADA",
       "beat_yield": true,
+      "buy_price": 0.16515945,
       "cost": 260.73,
       "cumulative_pnl": 27.78,
       "entry_date": "2026-07-27",
@@ -109,6 +122,7 @@
       "number": 7,
       "pnl": 12.62,
       "return_pct": 4.84,
+      "sell_price": 0.17315248,
       "yield_benchmark": 0.09
     }
   ]

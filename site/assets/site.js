@@ -4,6 +4,10 @@
   const page = document.body.dataset.page || '';
   const el = id => document.getElementById(id);
   const money = value => new Intl.NumberFormat('en-US', {style:'currency',currency:'USD',minimumFractionDigits:2}).format(value);
+  const priceMoney = value => new Intl.NumberFormat('en-US', {
+    style:'currency', currency:'USD', minimumFractionDigits:value < 1 ? 4 : 2,
+    maximumFractionDigits:value < 1 ? 8 : value < 10 ? 6 : 4
+  }).format(value);
   const signedMoney = value => `${value >= 0 ? '+' : '−'}${money(Math.abs(value))}`;
   const signedPct = value => `${value >= 0 ? '+' : '−'}${Math.abs(value * 100).toFixed(2)}%`;
   const performancePct = value => `${value >= 0 ? '+' : '−'}${Math.abs(value).toFixed(2)}%`;
@@ -61,9 +65,9 @@
     if(el('trade-count'))el('trade-count').textContent=String(s.completed_trades);
     if(el('record'))el('record').textContent=`${s.wins} / ${s.losses}`;
     if(el('realized-return')){el('realized-return').textContent=performancePct(s.realized_return_pct);el('realized-return').className=s.realized_return_pct>=0?'positive':'negative';}
-    if(el('performance-updated'))el('performance-updated').textContent=`Sanitized ledger refreshed ${new Date(data.generated_at).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'})}`;
+    if(el('performance-updated'))el('performance-updated').textContent=`Sanitized ledger refreshed ${new Date(data.generated_at).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric',timeZone:'UTC'})}`;
     const body=el('trade-rows'); if(!body)return; body.replaceChildren();
-    [...data.trades].reverse().forEach(trade=>{ const row=document.createElement('tr');addCell(row,trade.asset,'asset');addCell(row,trade.entry_date);addCell(row,trade.exit_date);addCell(row,trade.held_days.toFixed(2));addCell(row,money(trade.cost));addCell(row,signedMoney(trade.pnl),trade.pnl>=0?'positive':'negative');addCell(row,performancePct(trade.return_pct),trade.return_pct>=0?'positive':'negative');addCell(row,trade.beat_yield?'Beat':'Missed');body.append(row); });
+    [...data.trades].reverse().forEach(trade=>{ const row=document.createElement('tr');addCell(row,trade.asset,'asset');addCell(row,trade.entry_date);addCell(row,trade.exit_date);addCell(row,priceMoney(trade.buy_price));addCell(row,priceMoney(trade.sell_price));addCell(row,trade.held_days.toFixed(2));addCell(row,money(trade.cost));addCell(row,signedMoney(trade.pnl),trade.pnl>=0?'positive':'negative');addCell(row,performancePct(trade.return_pct),trade.return_pct>=0?'positive':'negative');addCell(row,trade.beat_yield?'Beat':'Missed');body.append(row); });
   }
 
   async function start() {
