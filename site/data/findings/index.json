@@ -2,6 +2,14 @@
   "schema_version": 1,
   "snapshots": [
     {
+      "current_until": "2026-08-10T15:46:01Z",
+      "finding_count": 1,
+      "observed_at": "2026-08-10T13:46:01Z",
+      "path": "snapshots/2026/08/2026-08-10T13-46-01Z.json",
+      "source_commit": "b4e756fe0744fbbbda0029c5b39dada9d4d8f493",
+      "status": "normal"
+    },
+    {
       "current_until": "2026-08-10T13:27:30Z",
       "finding_count": 1,
       "observed_at": "2026-08-10T11:27:30Z",
