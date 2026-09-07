@@ -70,11 +70,15 @@ class SiteBuildTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             dist = self.build(tmp)
             data = json.loads((dist / "data/performance/realized-results.json").read_text())
-            self.assertEqual(data["summary"]["completed_trades"], 7)
-            self.assertEqual(len(data["trades"]), 7)
-            self.assertAlmostEqual(data["summary"]["net_realized_pnl"], 27.78)
-            self.assertAlmostEqual(sum(trade["pnl"] for trade in data["trades"]), 27.78)
-            self.assertEqual(sum(1 for trade in data["trades"] if trade["pnl"] < 0), 1)
+            self.assertEqual(data["summary"]["completed_trades"], 11)
+            self.assertEqual(len(data["trades"]), 11)
+            self.assertAlmostEqual(data["summary"]["net_realized_pnl"], 53.02)
+            self.assertAlmostEqual(sum(trade["pnl"] for trade in data["trades"]), 53.02)
+            self.assertEqual(sum(1 for trade in data["trades"] if trade["pnl"] < 0), 3)
+            latest = data["trades"][-1]
+            self.assertEqual((latest["number"], latest["asset"], latest["exit_date"]), (11, "AVAX", "2026-09-07"))
+            self.assertAlmostEqual(latest["pnl"], 17.65)
+            self.assertAlmostEqual(latest["return_pct"], 6.39)
             for trade in data["trades"]:
                 self.assertGreater(trade["buy_price"], 0)
                 self.assertGreater(trade["sell_price"], 0)

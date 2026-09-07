@@ -146,7 +146,7 @@ def _validate_performance(data: Any) -> None:
         calendar_days = (exit_date - entry_date).days
         if abs(held_days - calendar_days) >= 1:
             raise ValueError("holding duration is incompatible with public dates")
-        expected_yield = cost * (benchmark / 100) * held_days / 365
+        expected_yield = cost * ((1 + benchmark / 100) ** (held_days / 365) - 1)
         if abs(yield_benchmark - expected_yield) > 0.02:
             raise ValueError("trade yield benchmark mismatch")
         if abs(return_pct - pnl / cost * 100) > 0.02:

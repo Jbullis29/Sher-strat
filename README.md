@@ -1,8 +1,8 @@
 # sherweb-strategy
 
-Public-source, credential-free Coinbase market research for [`Jbullis29/Sher-strat`](https://github.com/Jbullis29/Sher-strat) and the planned `sherweb.ai` website.
+Public-source, credential-free Coinbase market research for [`Jbullis29/Sher-strat`](https://github.com/Jbullis29/Sher-strat) and [`sherweb.ai`](https://sherweb.ai/).
 
-> **Current state:** source published on GitHub. GitHub Pages and the `sherweb.ai` custom domain are not yet enabled.
+> **Current state:** source published on GitHub and deployed to GitHub Pages at `sherweb.ai`.
 
 ## Public/private boundary
 
@@ -27,6 +27,13 @@ A finding is **not** an executed trade and is not automatically included in perf
 ### Personal realized performance
 
 `site/data/performance/realized-results.json` contains a sanitized export of completed personal strategy trades. It excludes open positions and ordinary holdings. It is not the performance of every public finding.
+
+Performance refreshes are performed locally from an explicitly supplied private ledger. The transformer copies only its fixed public schema; the private input path and private-only fields are not written to the repository:
+
+```bash
+python3 tools/refresh_performance.py --ledger <private-ledger.json>
+python3 tools/build_site.py
+```
 
 ## Local verification
 
