@@ -16,6 +16,23 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("cron: '17 */2 * * *'", text)
         self.assertIn("workflow_dispatch:", text)
 
+    def test_push_deploys_site_changes_but_excludes_findings_only_updates(self):
+        text = self.text()
+        match = re.search(
+            r"(?ms)^  push:\n    branches: \[main\]\n    paths:\n((?:      - '[^']+'\n)+)",
+            text,
+        )
+        if match is None:
+            self.fail("push paths block is missing or malformed")
+        paths = re.findall(r"(?m)^      - '([^']+)'$", match.group(1))
+        self.assertEqual(paths, [
+            ".github/workflows/scan-and-publish.yml",
+            "site/**",
+            "!site/data/findings/**",
+            "scanner/**",
+            "tools/build_site.py",
+        ])
+
     def test_workflow_tests_before_scanning_building_and_deploying(self):
         text = self.text()
         positions = [

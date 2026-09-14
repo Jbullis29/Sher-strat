@@ -4,6 +4,14 @@ on:
   schedule:
     - cron: '17 */2 * * *'
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/scan-and-publish.yml'
+      - 'site/**'
+      - '!site/data/findings/**'
+      - 'scanner/**'
+      - 'tools/build_site.py'
 
 permissions:
   contents: write
