@@ -1,0 +1,50 @@
+{
+  "algorithm_version": "1.0.0",
+  "current_until": "2026-10-11T07:50:06Z",
+  "finding_count": 1,
+  "findings": [
+    {
+      "cautions": [],
+      "change_24h": -0.006087588588042925,
+      "change_7d": -0.09452859862594154,
+      "current_vs_sma72": -0.007445344517312824,
+      "do_not_chase_above": 113.31056148291843,
+      "downside_to_invalidation": 0.052948878122111465,
+      "estimated_net_upside": 0.05495126509634231,
+      "estimated_round_trip_cost": 0.013,
+      "gross_upside": 0.0679512650963423,
+      "invalidation": 103.59792222222222,
+      "possible_target": 116.8231888888889,
+      "product_id": "SOL-USD",
+      "pullback_from_7d_high": -0.10526746278423038,
+      "ranking_score": 7.668694509517761,
+      "reasons": [
+        "room to recent resistance: gross +6.80%, estimated net +5.50%",
+        "controlled pullback from 7-day high: -10.53%",
+        "not far below the 72-hour average"
+      ],
+      "reference_price": 109.39,
+      "reward_to_risk": 1.283337201963602,
+      "spread": 9.141185611778522e-05,
+      "suggested_limit_buy": 109.39
+    }
+  ],
+  "market_regime": {
+    "below_sma_fraction": 0.5,
+    "btc": {
+      "change_24h": 0.0024608720855145982,
+      "change_7d": -0.02263213287230159,
+      "current_vs_sma72": 0.0056337516780413655
+    },
+    "data_complete": true,
+    "errors": [],
+    "products_loaded": 10,
+    "reasons": [],
+    "risk_off": false
+  },
+  "notice": "Research snapshot, not an executed trade or financial advice. Prices may change before the next scan.",
+  "observed_at": "2026-10-11T05:50:06Z",
+  "schema_version": 1,
+  "source_commit": "5b69f3cea1871d2cba7b7d019f61b3f00e0323b9",
+  "status": "normal"
+}
