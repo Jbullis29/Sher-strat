@@ -1,0 +1,26 @@
+{
+  "algorithm_version": "1.0.0",
+  "current_until": "2026-10-13T01:00:57Z",
+  "finding_count": 0,
+  "findings": [],
+  "market_regime": {
+    "below_sma_fraction": 1.0,
+    "btc": {
+      "change_24h": -0.018477912991522905,
+      "change_7d": -0.04565620148633631,
+      "current_vs_sma72": -0.012529722489098782
+    },
+    "data_complete": true,
+    "errors": [],
+    "products_loaded": 10,
+    "reasons": [
+      "extreme market weakness: 100% of watched assets below their 72-hour average"
+    ],
+    "risk_off": true
+  },
+  "notice": "Research snapshot, not an executed trade or financial advice. Prices may change before the next scan.",
+  "observed_at": "2026-10-12T23:00:57Z",
+  "schema_version": 1,
+  "source_commit": "edde460d6c7521b37849fb6d7e585c8a93869527",
+  "status": "risk_off"
+}
