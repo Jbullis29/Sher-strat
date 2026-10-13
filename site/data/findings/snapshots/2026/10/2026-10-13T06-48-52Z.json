@@ -1,0 +1,77 @@
+{
+  "algorithm_version": "1.0.0",
+  "current_until": "2026-10-13T08:48:52Z",
+  "finding_count": 2,
+  "findings": [
+    {
+      "cautions": [],
+      "change_24h": -0.049038461538461475,
+      "change_7d": -0.10361248183688443,
+      "current_vs_sma72": -0.021071781531679434,
+      "do_not_chase_above": 65.2682444228904,
+      "downside_to_invalidation": 0.04721780859293501,
+      "estimated_net_upside": 0.06700000000000007,
+      "estimated_round_trip_cost": 0.013,
+      "gross_upside": 0.08000000000000007,
+      "invalidation": 59.365,
+      "possible_target": 67.29156,
+      "product_id": "LTC-USD",
+      "pullback_from_7d_high": -0.11793935275630685,
+      "ranking_score": 8.78193320780392,
+      "reasons": [
+        "room to recent resistance: gross +8.00%, estimated net +6.70%",
+        "controlled pullback from 7-day high: -11.79%",
+        "24-hour volume is healthy versus the prior day: 1.58x",
+        "reward/risk looks acceptable: 1.69x"
+      ],
+      "reference_price": 62.307,
+      "reward_to_risk": 1.6942760027192392,
+      "spread": 0.00017651259256875053,
+      "suggested_limit_buy": 62.307
+    },
+    {
+      "cautions": [],
+      "change_24h": -0.0362423332576125,
+      "change_7d": -0.09077398284593485,
+      "current_vs_sma72": -0.013405974745374416,
+      "do_not_chase_above": 0.20337487687250785,
+      "downside_to_invalidation": 0.049872155524469775,
+      "estimated_net_upside": 0.06140342518436549,
+      "estimated_round_trip_cost": 0.013,
+      "gross_upside": 0.07440342518436549,
+      "invalidation": 0.185426,
+      "possible_target": 0.20967949805555558,
+      "product_id": "XLM-USD",
+      "pullback_from_7d_high": -0.1002475761054481,
+      "ranking_score": 8.44987034977565,
+      "reasons": [
+        "room to recent resistance: gross +7.44%, estimated net +6.14%",
+        "controlled pullback from 7-day high: -10.02%",
+        "not far below the 72-hour average",
+        "24-hour volume is healthy versus the prior day: 1.14x"
+      ],
+      "reference_price": 0.195159,
+      "reward_to_risk": 1.4918830838955708,
+      "spread": 0.0004916471202794847,
+      "suggested_limit_buy": 0.195159
+    }
+  ],
+  "market_regime": {
+    "below_sma_fraction": 0.7,
+    "btc": {
+      "change_24h": -0.005821694599904226,
+      "change_7d": -0.019320163990632522,
+      "current_vs_sma72": 0.006866694037625187
+    },
+    "data_complete": true,
+    "errors": [],
+    "products_loaded": 10,
+    "reasons": [],
+    "risk_off": false
+  },
+  "notice": "Research snapshot, not an executed trade or financial advice. Prices may change before the next scan.",
+  "observed_at": "2026-10-13T06:48:52Z",
+  "schema_version": 1,
+  "source_commit": "58924a7df58e0e07c64456692143d277a252410b",
+  "status": "normal"
+}
