@@ -1,0 +1,104 @@
+{
+  "algorithm_version": "1.0.0",
+  "current_until": "2026-10-15T23:24:57Z",
+  "finding_count": 3,
+  "findings": [
+    {
+      "cautions": [],
+      "change_24h": -0.003911502261337074,
+      "change_7d": -0.033333333333333215,
+      "current_vs_sma72": -0.014348135044828458,
+      "do_not_chase_above": 0.08468081474296801,
+      "downside_to_invalidation": 0.04650877408270959,
+      "estimated_net_upside": 0.05836973861823548,
+      "estimated_round_trip_cost": 0.013,
+      "gross_upside": 0.07136973861823548,
+      "invalidation": 0.0777,
+      "possible_target": 0.08730592000000001,
+      "product_id": "DOGE-USD",
+      "pullback_from_7d_high": -0.0740824906260652,
+      "ranking_score": 8.988811408963231,
+      "reasons": [
+        "room to recent resistance: gross +7.14%, estimated net +5.84%",
+        "controlled pullback from 7-day high: -7.41%",
+        "not far below the 72-hour average",
+        "24-hour volume is healthy versus the prior day: 2.02x",
+        "reward/risk looks acceptable: 1.53x"
+      ],
+      "reference_price": 0.08149,
+      "reward_to_risk": 1.5345435356200534,
+      "spread": 0.00024545900834568147,
+      "suggested_limit_buy": 0.08149
+    },
+    {
+      "cautions": [],
+      "change_24h": 0.00037505707390272924,
+      "change_7d": -0.0435751925415484,
+      "current_vs_sma72": -0.01505124004316205,
+      "do_not_chase_above": 0.1921091925315228,
+      "downside_to_invalidation": 0.045635632820947736,
+      "estimated_net_upside": 0.06319811618063355,
+      "estimated_round_trip_cost": 0.013,
+      "gross_upside": 0.07619811618063355,
+      "invalidation": 0.17564217249999997,
+      "possible_target": 0.1980645775,
+      "product_id": "XLM-USD",
+      "pullback_from_7d_high": -0.10540284360189567,
+      "ranking_score": 8.844061946981038,
+      "reasons": [
+        "room to recent resistance: gross +7.62%, estimated net +6.32%",
+        "controlled pullback from 7-day high: -10.54%",
+        "24-hour volume is healthy versus the prior day: 0.99x",
+        "reward/risk looks acceptable: 1.67x"
+      ],
+      "reference_price": 0.184041,
+      "reward_to_risk": 1.669706575114194,
+      "spread": 0.0005652235350383862,
+      "suggested_limit_buy": 0.184041
+    },
+    {
+      "cautions": [],
+      "change_24h": 0.007405022537025241,
+      "change_7d": -0.01673344331840676,
+      "current_vs_sma72": -0.008582401950375962,
+      "do_not_chase_above": 12.979445252721202,
+      "downside_to_invalidation": 0.056567593480345124,
+      "estimated_net_upside": 0.05617609903767641,
+      "estimated_round_trip_cost": 0.013,
+      "gross_upside": 0.06917609903767641,
+      "invalidation": 11.808,
+      "possible_target": 13.381808055555558,
+      "product_id": "LINK-USD",
+      "pullback_from_7d_high": -0.0896130346232179,
+      "ranking_score": 8.410189226255472,
+      "reasons": [
+        "room to recent resistance: gross +6.92%, estimated net +5.62%",
+        "controlled pullback from 7-day high: -8.96%",
+        "not far below the 72-hour average",
+        "24-hour volume is healthy versus the prior day: 1.20x"
+      ],
+      "reference_price": 12.516,
+      "reward_to_risk": 1.2228927338355344,
+      "spread": 0.00023960704444711583,
+      "suggested_limit_buy": 12.516
+    }
+  ],
+  "market_regime": {
+    "below_sma_fraction": 0.7,
+    "btc": {
+      "change_24h": 0.00639110757280803,
+      "change_7d": 0.006766836340795779,
+      "current_vs_sma72": -0.0028141821702862835
+    },
+    "data_complete": true,
+    "errors": [],
+    "products_loaded": 10,
+    "reasons": [],
+    "risk_off": false
+  },
+  "notice": "Research snapshot, not an executed trade or financial advice. Prices may change before the next scan.",
+  "observed_at": "2026-10-15T21:24:57Z",
+  "schema_version": 1,
+  "source_commit": "9a5ffbae24190aea362c0035f3af4f219de6ae0a",
+  "status": "normal"
+}
