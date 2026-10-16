@@ -1,0 +1,50 @@
+{
+  "algorithm_version": "1.0.0",
+  "current_until": "2026-10-16T09:12:28Z",
+  "finding_count": 1,
+  "findings": [
+    {
+      "cautions": [],
+      "change_24h": 0.01687087653157393,
+      "change_7d": -0.06081243695241412,
+      "current_vs_sma72": -0.011282876006958542,
+      "do_not_chase_above": 0.1907239613643712,
+      "downside_to_invalidation": 0.04927306588591507,
+      "estimated_net_upside": 0.059096329958436514,
+      "estimated_round_trip_cost": 0.013,
+      "gross_upside": 0.07209632995843651,
+      "invalidation": 0.17437567916666666,
+      "possible_target": 0.1966364041666667,
+      "product_id": "XLM-USD",
+      "pullback_from_7d_high": -0.10845546238911163,
+      "ranking_score": 8.269361817907905,
+      "reasons": [
+        "room to recent resistance: gross +7.21%, estimated net +5.91%",
+        "controlled pullback from 7-day high: -10.85%",
+        "not far below the 72-hour average"
+      ],
+      "reference_price": 0.183413,
+      "reward_to_risk": 1.463199593168518,
+      "spread": 0.00015798261646451928,
+      "suggested_limit_buy": 0.183413
+    }
+  ],
+  "market_regime": {
+    "below_sma_fraction": 0.5,
+    "btc": {
+      "change_24h": 0.00785403579574706,
+      "change_7d": -0.006201463653918271,
+      "current_vs_sma72": -0.0031398452039295144
+    },
+    "data_complete": true,
+    "errors": [],
+    "products_loaded": 10,
+    "reasons": [],
+    "risk_off": false
+  },
+  "notice": "Research snapshot, not an executed trade or financial advice. Prices may change before the next scan.",
+  "observed_at": "2026-10-16T07:12:28Z",
+  "schema_version": 1,
+  "source_commit": "a4fa380d636144fbaae64115f7b68b7d054a4d34",
+  "status": "normal"
+}
